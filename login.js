@@ -1,8 +1,9 @@
-
-localStorage.setItem("users", JSON.stringify([
-        { login: "admin", password: "1234" },
-        { login: "test", password: "qwerty" }
-    ]));
+    if (!localStorage.getItem("users")) {
+        localStorage.setItem("users", JSON.stringify([
+            { login: "admin", password: "1234" },
+            { login: "test", password: "qwerty" }
+        ]));
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
     const loginInput = document.getElementById("loginInput");

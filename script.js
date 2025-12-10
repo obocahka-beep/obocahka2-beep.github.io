@@ -4,48 +4,39 @@ let login = document.querySelector('#login');
 let password = document.querySelector('#password');
 let submit = document.querySelector('#submit');
 
-function User(name, secondname, login, password) {
-    this.name = name;
-    this.secondname = secondname;
-    this.login = login;
-    this.password = password;
-}
-
-function createId(users) {
-    return Object.keys(users).length;
-}
-
 submit.addEventListener('click', (e) => {
-    e.preventDefault(); // не даём форме перезагрузиться
+    e.preventDefault(); // чтобы не перезагружало страницу
 
-    const nameUser = name.value.trim();
+    const firstnameUser = name.value.trim();
     const secondnameUser = secondname.value.trim();
     const loginUser = login.value.trim();
     const passwordUser = password.value.trim();
 
-    // Проверка заполнения
-    if (!nameUser || !secondnameUser || !loginUser || !passwordUser) {
+    if (!firstnameUser || !secondnameUser || !loginUser || !passwordUser) {
         alert("Пожалуйста, заполните все поля!");
         return;
     }
 
-    // 1. Загружаем старых пользователей
-    let users = JSON.parse(localStorage.getItem('users')) || {};
+    // Загружаем массив пользователей
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Создаём нового
-    const user = new User(nameUser, secondnameUser, loginUser, passwordUser);
+    // Добавляем нового пользователя (в формате массива!)
+    users.push({
+        login: loginUser,
+        password: passwordUser,
+        firstname: firstnameUser,
+        secondname: secondnameUser
+    });
 
-    // Генерируем ID
-    const userId = 'User' + createId(users);
+    // Сохраняем обратно
+    localStorage.setItem("users", JSON.stringify(users));
 
-    // Добавляем в объект
-    users[userId] = user;
+    // Можно сохранить текущего пользователя
+    localStorage.setItem("currentUser", JSON.stringify({
+        login: loginUser,
+        firstname: firstnameUser,
+        secondname: secondnameUser
+    }));
 
-    // 2. Сохраняем всех пользователей
-    localStorage.setItem('users', JSON.stringify(users));
-
-    // 3. Сохраняем текущего юзера
-    localStorage.setItem('currentUser', JSON.stringify(user));
-
-    alert(`${nameUser}, вы успешно зарегистрировались!`);
+    alert(`${firstnameUser}, вы успешно зарегистрировались!`);
 });
