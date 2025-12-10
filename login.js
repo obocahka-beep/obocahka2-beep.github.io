@@ -57,9 +57,10 @@
             } else {
                 localStorage.removeItem("rememberLogin");
             }
+            localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
             alert("Успешный вход!");
-            // window.location.href = "main.html";
+            window.location.href = "index1.html";
         } else {
             showError("Неправильное имя пользователя или пароль");
         }

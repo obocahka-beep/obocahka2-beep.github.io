@@ -1,0 +1,319 @@
+* { margin: 0; }
+.body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.header {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    display: flex;
+    height: fit-content;
+    background-color: rgb(1, 111, 232);
+    justify-content: space-between;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #f1f5f9;
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.status {
+    color: #888;
+    margin: 5px 0 20px;
+}
+
+.info {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background: #0066ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0051cc;
+}
+.logo {
+    background-color: rgb(1, 111, 232);
+    border: none;
+    text-align: center;
+}
+.logo>img {
+    max-height: 50px;
+    width: auto;
+}
+.footer {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(1, 111, 232);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10pt;
+    font-weight: 500;
+    color: rgb(218, 237, 253);
+}
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* --- Блок материалов --- */
+#materialsBlock {
+    border: 1px solid rgb(1, 111, 232);
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgb(1, 111, 232);
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+/* Заголовки внутри блока */
+#materialsBlock h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 22px;
+}
+
+#materialsBlock h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 18px;
+}
+
+/* Селект выбора года */
+#yearSelect {
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    margin-bottom: 10px;
+}
+
+#materialsContainer {
+    margin-top: 15px;
+}
+
+/* Секция аккордеона */
+.accordion-section {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+/* Заголовок */
+.accordion-header {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Тело секции */
+.accordion-body {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* Списки */
+.accordion-body ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Фотографии */
+.accordion-photo {
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: transform 0.2s;
+}
+
+.accordion-photo:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    #materialsContainer div img {
+        width: 100px;
+        margin: 3px;
+    }
+    #yearSelect {
+        width: 100%;
+    }
+}
+/* --- Вкладки --- */
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    margin-right: 2px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+/* Контент вкладок */
+.tab-content {
+    border: 1px solid #ccc;
+    border-radius: 0 6px 6px 6px;
+    padding: 15px;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* --- Текущий хакатон --- */
+#currentHackathonBlock, #materialsBlock {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #007bff;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+#currentHackathonBlock h2, #materialsBlock h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #fff;
+}
+
+/* Список текущего хакатона */
+#currentHackathonMaterials li {
+    margin-bottom: 8px;
+}
+
+#currentHackathonMaterials li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#currentHackathonMaterials li a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Аккордеон для прошлых хакатонов */
+.accordion-section {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    outline: none;
+}
+
+.accordion-body {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.accordion-body ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.accordion-photo {
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: transform 0.2s;
+}
+
+.accordion-photo:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}

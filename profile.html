@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="styleLK.css" />
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <a href="index1.html">
+                <button class="logo">
+                <img src="1.png" alt="ГЦИР">
+            </button>
+            </a>
+        </div>
+        <div class="profile-container">
+
+            <div class="profile-card">
+                <img src="1.png" class="avatar" id="avatar" alt="Avatar">
+
+                <input type="file" id="avatarInput" accept="image/*" style="display:none">
+                <button id="changeAvatarBtn" class="btn">Изменить аватар</button>
+
+                <h2 id="name">Имя Фамилия</h2>
+                <p id="status" class="status">Участник хакатона</p>
+
+                <div class="info">
+                    <p><strong>Команда:</strong><span id="team"> New Wave</span></p>
+                    <p><strong>Email:</strong><span id="email"> example@mail.ru</span></p>
+                </div>
+
+                <button class="btn" id="editBtn">Редактировать профиль</button>
+                <button class="btn" id="showMaterialsBtn">Материалы хакатона</button>
+                <div id="currentHackathonBlock">
+                    <h2>Материалы текущего хакатона</h2>
+
+                    <!-- Ссылки на задания, ответы, презентации и т.д. -->
+                    <ul id="currentHackathonMaterials">
+                        <!-- Сюда будем подставлять элементы через JS -->
+                    </ul>
+                </div>
+
+                <div class="materials" id="materialsBlock">
+                    <h2>Материалы прошлых хакатонов</h2>
+                    <select id="yearSelect">
+                        <option value="">Выберите год</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+
+                    <div id="materialsContainer" style="margin-top:10px;"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="footer">
+            "Гуманитарный центр интеллектуального развития"
+            445045 Россия, г.Тольятти, ул.Л.Чайкиной, 87; Тел/факс: 8 (8482) 379-499; эл.почта: office@cir.tgl.ru
+        </div>
+    </div>
+    <script src="scriptLK.js"></script>
+</body>
+
+</html>

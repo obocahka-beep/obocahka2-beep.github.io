@@ -32,4 +32,5 @@ submit.addEventListener('click', (e) => {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert(`${firstnameUser}, вы успешно зарегистрировались!`);
+    window.location.href = "login.html";
 });
