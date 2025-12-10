@@ -31,12 +31,5 @@ submit.addEventListener('click', (e) => {
     // Сохраняем обратно
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Можно сохранить текущего пользователя
-    localStorage.setItem("currentUser", JSON.stringify({
-        login: loginUser,
-        firstname: firstnameUser,
-        secondname: secondnameUser
-    }));
-
     alert(`${firstnameUser}, вы успешно зарегистрировались!`);
 });
