@@ -5,7 +5,7 @@ let password = document.querySelector('#password');
 let submit = document.querySelector('#submit');
 
 submit.addEventListener('click', (e) => {
-    e.preventDefault(); // чтобы не перезагружало страницу
+    e.preventDefault();
 
     const firstnameUser = name.value.trim();
     const secondnameUser = secondname.value.trim();
@@ -17,10 +17,8 @@ submit.addEventListener('click', (e) => {
         return;
     }
 
-    // Загружаем массив пользователей
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Добавляем нового пользователя (в формате массива!)
     users.push({
         login: loginUser,
         password: passwordUser,
@@ -28,7 +26,6 @@ submit.addEventListener('click', (e) => {
         secondname: secondnameUser
     });
 
-    // Сохраняем обратно
     localStorage.setItem("users", JSON.stringify(users));
 
     alert(`${firstnameUser}, вы успешно зарегистрировались!`);

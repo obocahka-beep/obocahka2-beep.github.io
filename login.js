@@ -12,7 +12,6 @@
     const rememberCheckbox = document.querySelector(".remember input[type='checkbox']");
     const errorMessage = document.getElementById("errorMessage");
 
-    // Восстановление логина
     const savedLogin = localStorage.getItem("rememberLogin");
     if (savedLogin) {
         loginInput.value = savedLogin;
@@ -35,7 +34,6 @@
         passwordInput.classList.remove("input-error");
     }
 
-    // Убираем ошибку при вводе
     loginInput.addEventListener("input", clearError);
     passwordInput.addEventListener("input", clearError);
 

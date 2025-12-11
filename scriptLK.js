@@ -1,7 +1,6 @@
 let editing = false;
 
 window.addEventListener("DOMContentLoaded", () => {
-    // Загружаем данные из localStorage при загрузке страницы
     const fields = ["name", "status", "team", "email"];
     fields.forEach(id => {
         const elem = document.getElementById(id);
@@ -21,7 +20,6 @@ document.getElementById("editBtn").onclick = function () {
     let email = document.getElementById("email");
 
     if (!editing) {
-        // Переключаемся в режим редактирования
         name.innerHTML = `<input id="nameInput" value="${name.dataset.value || name.textContent}">`;
         status.innerHTML = `<input id="statusInput" value="${status.dataset.value || status.textContent}">`;
         team.innerHTML = `<input id="teamInput" value="${team.dataset.value || team.textContent}">`;
@@ -30,13 +28,11 @@ document.getElementById("editBtn").onclick = function () {
         this.textContent = "Сохранить";
         editing = true;
     } else {
-        // Получаем новые значения
         let nameVal = document.getElementById("nameInput").value;
         let statusVal = document.getElementById("statusInput").value;
         let teamVal = document.getElementById("teamInput").value;
         let emailVal = document.getElementById("emailInput").value;
 
-        // Сохраняем в dataset и localStorage
         name.dataset.value = nameVal;
         status.dataset.value = statusVal;
         team.dataset.value = teamVal;
@@ -47,7 +43,6 @@ document.getElementById("editBtn").onclick = function () {
         localStorage.setItem("team", teamVal);
         localStorage.setItem("email", emailVal);
 
-        // Обновляем текст
         name.textContent = nameVal;
         status.textContent = statusVal;
         team.textContent = teamVal;
@@ -58,12 +53,10 @@ document.getElementById("editBtn").onclick = function () {
     }
 };
 
-// Кнопка "Изменить аватар"
 document.getElementById("changeAvatarBtn").onclick = function () {
     document.getElementById("avatarInput").click();
 };
 
-// Обработка выбранного файла
 document.getElementById("avatarInput").onchange = function (event) {
     let file = event.target.files[0];
     if (!file) return;
@@ -74,14 +67,12 @@ document.getElementById("avatarInput").onchange = function (event) {
         let avatar = document.getElementById("avatar");
         avatar.src = e.target.result;
 
-        // Сохраняем в localStorage, чтобы не пропадал после перезагрузки
         localStorage.setItem("userAvatar", e.target.result);
     };
 
     reader.readAsDataURL(file);
 };
 
-// Загрузка картинки при открытии страницы
 window.addEventListener("load", () => {
     let savedAvatar = localStorage.getItem("userAvatar");
     if (savedAvatar) {
@@ -89,7 +80,6 @@ window.addEventListener("load", () => {
     }
 });
 
-// Показ/скрытие блока материалов
 
 document.getElementById("yearSelect").addEventListener("change", function() {
     const year = this.value;
@@ -100,7 +90,6 @@ document.getElementById("yearSelect").addEventListener("change", function() {
 
     const data = hackathonMaterials[year];
 
-    // Функция для создания секции аккордеона
     function createAccordionSection(title, content) {
         const section = document.createElement("div");
         section.className = "accordion-section";
@@ -145,7 +134,6 @@ document.getElementById("yearSelect").addEventListener("change", function() {
     container.appendChild(createAccordionSection("Результаты", data.results));
     container.appendChild(createAccordionSection("Фотографии", data.photos));
 });
-// --- Текущий хакатон ---
 const currentHackathonMaterials = [
     { name: "Задание 1", url: "current_task1.pdf" },
     { name: "Задание 2", url: "current_task2.pdf" },
@@ -169,7 +157,6 @@ function renderCurrentHackathonMaterials() {
 
 renderCurrentHackathonMaterials();
 
-// --- Прошлые хакатоны ---
 const hackathonMaterials = {
     "2021": { tasks: ["Задание 1", "Задание 2"], results: ["1 место — Команда A", "2 место — Команда B"], photos: ["2021_1.jpg", "2021_2.jpg"] },
     "2022": { tasks: ["Задание A", "Задание B"], results: ["1 место — Команда X", "2 место — Команда Y"], photos: ["2022_1.jpg", "2022_2.jpg"] },
@@ -229,12 +216,10 @@ document.getElementById("yearSelect").addEventListener("change", function() {
     container.appendChild(createAccordionSection("Фотографии", data.photos));
 });
 
-// --- Показ / скрытие материалов текущего и прошлых хакатонов ---
 const materialsBtn = document.getElementById("showMaterialsBtn");
 const currentBlock = document.getElementById("currentHackathonBlock");
 const pastBlock = document.getElementById("materialsBlock");
 
-// Скрываем блоки при загрузке
 currentBlock.style.display = "none";
 pastBlock.style.display = "none";
 
